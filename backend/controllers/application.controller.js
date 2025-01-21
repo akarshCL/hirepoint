@@ -106,7 +106,7 @@ export const updateStatus = async (req,res) => {
             })
         };
 
-        // find the application by applicantion id
+       
         const application = await Application.findOne({_id:applicationId});
         if(!application){
             return res.status(404).json({
@@ -115,7 +115,6 @@ export const updateStatus = async (req,res) => {
             })
         };
 
-        // update the status
         application.status = status.toLowerCase();
         await application.save();
 
